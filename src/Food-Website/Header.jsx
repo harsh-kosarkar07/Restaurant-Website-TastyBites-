@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Header = ({count}) => {
+const Header = () => {
   const [toggleMenu, settoggleMenu] = useState(false);
+  
+  const items = useSelector((state)=> state);
+  const total = items.cart.reduce((a,b)=> a + b.price,0)
+  console.log(total)
+
+
 
 
   const handleToggle = () => {
@@ -16,9 +23,9 @@ const Header = ({count}) => {
     <div className=" fixed top-0 left-0 z-[999] w-full bg-white ">
       <div className=" flex justify-between sm:px-5 md:px-20 py-5 items-center font-semibold border-b-2 ">
         <div>
-          <p className="text-2xl cursor-pointer">
+          <Link to={'/'}><p className="text-2xl cursor-pointer">
             Tasty<span className=" text-orange-600 ">Bites </span>
-          </p>
+          </p></Link>
         </div>
         <div>
           <ul className=" flex  gap-5 text-lg  sm:hidden md:flex  ">
@@ -94,8 +101,9 @@ const Header = ({count}) => {
             <GiHamburgerMenu size={30} />
           </div>
           <div className="cursor-pointer flex flex-col items-center">
-            <p className=" -mt-2 -mb-1.5">{count}</p>
+            <p className=" -mt-4 -mb-1.5">{items.cart.length}</p>
             <FaCartShopping size={20} />
+            <p className="  font-bold text-[10px]">{total}/-</p>
           </div>
         </div>
       </div>

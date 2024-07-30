@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -10,7 +10,8 @@ const Footer = () => {
             Tasty<span className=" text-orange-600 ">Bites </span>
           </p>
         </Link>
-        <p>&copy; 2024 Bundl Technologies Pvt. Ltd</p>
+        <p>&copy; 2024 Tasty Bites Inc.</p>
+        <p> All rights reserved.</p>
       </div>
 
       <div className=" flex flex-col gap-2 ">

@@ -1,11 +1,16 @@
-import React from "react";
+
 import { topPicks } from "./Data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./FoodSlider.css"
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/slices/cartSlice";
 
-const FoodSlider = ({handleAddtoCart}) => {
+const FoodSlider = () => {
+
+  const dispatch = useDispatch()
+
   const settings = {
     dots: true,
     infinite: false,
@@ -59,7 +64,7 @@ const FoodSlider = ({handleAddtoCart}) => {
                 <div className=" flex flex-col items-center">
                   <p className=" capitalize text-xl">{items.title}</p>
                   <p>{items.price}</p>
-                  <button onClick={handleAddtoCart} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
+                  <button onClick={()=> dispatch(addItem({name:items.title, price: items.price }))} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
                     Add to cart
                   </button>
                 </div>

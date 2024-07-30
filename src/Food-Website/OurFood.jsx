@@ -1,7 +1,12 @@
-import React from "react";
-import { mealData } from "./Data";
 
-const OurFood = ({handleAddtoCart}) => {
+import { mealData } from "./Data";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/slices/cartSlice";
+
+const OurFood = () => {
+  const dispatch = useDispatch()
+
+
   return (
     <div className=" w-full md:px-20 pt-5 mt-20 ">
       <h1 className=" text-orange-600 sm:text-3xl md:text-4xl font-bold text-center">
@@ -22,7 +27,7 @@ const OurFood = ({handleAddtoCart}) => {
             <div className=" text-center">
               <p className=" uppercase text-lg">{item.name}</p>
               <p className=" text-lg">{item.price}</p>
-              <button onClick={handleAddtoCart} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
+              <button onClick={()=>  dispatch(addItem({name:item.name, price: item.price }))} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
                 Add to cart
               </button>
             </div>

@@ -1,5 +1,6 @@
-import React from "react";
+
 import DeliveryImg from "./assets/delivery-img.jpg";
+import { Link } from "react-router-dom";
 
 const Delivery = () => {
   return (
@@ -17,9 +18,9 @@ const Delivery = () => {
             We are ready to bring our service to your door.
           </p>
 
-          <button className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
+         <Link to={"/signin"} ><button  className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
             Order Now
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>
