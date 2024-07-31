@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  {  useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaXmark } from "react-icons/fa6";
@@ -8,10 +8,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [toggleMenu, settoggleMenu] = useState(false);
   
-  const items = useSelector((state)=> state);
-  const total = items.cart.reduce((a,b)=> a + b.price,0)
-  console.log(total)
-
+  const items = useSelector((state)=> state.cart);
 
 
 
@@ -96,15 +93,15 @@ const Header = () => {
         )}
         {/* ^^^^^ */}
 
-        <div className="flex gap-5  items-center ">
+        <div  className="flex gap-5  items-center ">
           <div onClick={handleToggle} className=" md:hidden cursor-pointer">
             <GiHamburgerMenu size={30} />
           </div>
-          <div className="cursor-pointer flex flex-col items-center">
-            <p className=" -mt-4 -mb-1.5">{items.cart.length}</p>
+          <Link to={'/cart'}><div className="cursor-pointer flex flex-col items-center">
+            <p className=" -mt-4 -mb-1.5">{items.length}</p>
             <FaCartShopping size={20} />
-            <p className="  font-bold text-[10px]">{total}/-</p>
-          </div>
+            
+          </div></Link>
         </div>
       </div>
     </div>

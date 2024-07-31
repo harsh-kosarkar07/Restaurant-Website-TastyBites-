@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Food-Website/Home";
 import AboutUs from "./Food-Website/AboutUs";
 import SignIn from "./Food-Website/SignIn";
+import Cart from "./Food-Website/Cart";
 
 const App = () => {
   
@@ -25,6 +26,8 @@ const App = () => {
             element={<OurFood  />}
           />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/cart" element={<Cart/>} />
+
         </Routes>
         <Footer />
       </BrowserRouter>

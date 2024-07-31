@@ -27,7 +27,7 @@ const OurFood = () => {
             <div className=" text-center">
               <p className=" uppercase text-lg">{item.name}</p>
               <p className=" text-lg">{item.price}</p>
-              <button onClick={()=>  dispatch(addItem({name:item.name, price: item.price }))} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
+              <button onClick={()=>  dispatch(addItem({name:item.name, price: item.price, image:item.image, id:item.id }))} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
                 Add to cart
               </button>
             </div>

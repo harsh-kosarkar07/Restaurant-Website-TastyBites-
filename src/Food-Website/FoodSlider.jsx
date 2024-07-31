@@ -52,19 +52,19 @@ const FoodSlider = () => {
       </h1>
       <div className=" ">
         <Slider {...settings}>
-          {topPicks.map((items) => (
-            <div key={items.id} className=" py-5  ">
+          {topPicks.map((item) => (
+            <div key={item.id} className=" py-5  ">
               <div>
                 <div className=" flex justify-center ">
                   <img
-                    src={items.img}
+                    src={item.image}
                     className="w-[200px] h-[200px] object-cover rounded-full "
                   />
                 </div>
                 <div className=" flex flex-col items-center">
-                  <p className=" capitalize text-xl">{items.title}</p>
-                  <p>{items.price}</p>
-                  <button onClick={()=> dispatch(addItem({name:items.title, price: items.price }))} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
+                  <p className=" capitalize text-xl">{item.naem}</p>
+                  <p>{item.price}</p>
+                  <button onClick={()=> dispatch(addItem({name:item.name, price: item.price, image:item.image, id:item.id }))} className="w-28 mt-2 text-lg bg-black text-white hover:text-orange-500  rounded-md px-2 py-1">
                     Add to cart
                   </button>
                 </div>
